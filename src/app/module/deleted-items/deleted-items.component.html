@@ -1,0 +1,42 @@
+<div class="bg-indigo-900/[0.3] p-4 font-bold flex justify-between border-b border-indigo-200">Deleted Items List -
+    Items ({{contacts.length}}) <div><button></button></div></div>
+<div  *ngIf="contacts.length > 0" class="overflow-y-auto h-[65vh]">
+    <div 
+        class="grid grid-cols-1 md:grid-cols-2 gap-4 p-2 bg-gradient-to-b from-indigo-50 to-white">
+        <div *ngFor="let contact of contacts">
+            <div class="mt-2 shadow border-2 border-white">
+                <div class="flex justify-end gap-2 bg-indigo-900/[0.2] p-1">
+                    <button (click)="restore(contact.id)" matTooltip="Restore"><i
+                            class="material-icons hover:text-pink-500 duration-300 align-middle hover:scale-110 scale-75">autorenew</i></button>
+                    <button (click)="delete(consentDialog,contact.id)" matTooltip="Delete Permanently"><i
+                            class="material-icons hover:text-orange-700 duration-300 align-middle hover:scale-110 scale-75">delete</i></button>
+                </div>
+                <div class="grid md:grid-cols-3">
+                    <div class="md:col-span-1 w-1/2 md:w-full m-auto p-4"><img
+                            class="rounded-full hover:scale-105 duration-300" [src]="contact.avatar" alt=""></div>
+                    <div
+                        class="md:col-span-2 m-4 bg-gray-50 p-4 flex flex-col rounded shadow text-xs text-center self-center ">
+                        <div class="font-bold text-gray-400 pb-2 border-b flex flex-col gap-2 md:flex-row">Name: <span
+                                class="text-gray-600 text-ellipsis overflow-hidden">{{contact.name}}</span>
+                        </div>
+                        <div class="font-bold text-gray-400 border-b py-2 flex flex-col gap-2 md:flex-row">Email: <span
+                                class="text-gray-600 text-ellipsis overflow-hidden">{{contact.email}}</span></div>
+                        <div class="font-bold text-gray-400 pt-2 flex flex-col gap-2 md:flex-row">Mobile: <span
+                                class="text-gray-600 text-ellipsis overflow-hidden">{{contact.mobile}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #consentDialog>
+    <div class="m-4">
+        <h2 class="pb-4">Pakkkkka?</h2>
+        <div class="flex justify-start gap-4">
+            <button mat-button mat-dialog-close color="warn">No</button>
+            <button mat-button mat-dialog-close (click)="deleteContact()" color="primary">Sure</button>
+        </div>
+    </div>
+</ng-template>

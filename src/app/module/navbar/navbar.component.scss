@@ -1,0 +1,9 @@
+li {
+    @apply font-bold hover:scale-95 duration-300 text-sm md:text-base;
+
+}
+
+
+a,button {
+    @apply p-4 hover:bg-indigo-900/[0.2] hover:rounded-full duration-500;
+}
