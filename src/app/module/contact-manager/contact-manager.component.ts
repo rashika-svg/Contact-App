@@ -42,7 +42,7 @@ export class ContactManagerComponent implements OnInit {
 
   filterResults(text: string) {
     this.filteredItems = this.contacts.filter(
-      contact => contact?.name.toLowerCase().includes(text.toLowerCase())
+      contact => contact?.name?.toLowerCase().includes(text.toLowerCase())
     );
   }
 
@@ -65,7 +65,7 @@ export class ContactManagerComponent implements OnInit {
 
   add() {
     this._dialog.open(AddContactComponent, {
-      width: '50%',
+      width: '55%',
     }).afterClosed().subscribe(val => {
       if (val) {
         this.getContacts();
@@ -75,7 +75,7 @@ export class ContactManagerComponent implements OnInit {
 
   edit(row: any) {
     this._dialog.open(AddContactComponent, {
-      width: '50%',
+      width: '55%',
       data: row
     }).afterClosed().subscribe(val => {
       if (val) {

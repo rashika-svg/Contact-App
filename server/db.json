@@ -3,35 +3,72 @@
     {
       "id": "7686765676",
       "name": "Amit",
-      "mobile": "8787656543",
-      "company": "pumpumpum",
+      "mobile": 8787656543,
       "email": "amit@gmail.com",
       "title": "Procurement Head",
-      "avatar": "https://png.pngtree.com/png-vector/20220709/ourmid/pngtree-businessman-user-avatar-wearing-suit-with-red-tie-png-image_5809521.png",
-      "groupId": "4",
-      "recycled": false
+      "avatar": "https://www.shutterstock.com/image-vector/young-smiling-man-avatar-brown-600nw-2261401207.jpg",
+      "groupId": "1",
+      "recycled": false,
+      "nickName": null,
+      "dob": "1990-12",
+      "pronouns": null,
+      "companyDetails": {
+        "company": "Pumpumpum",
+        "department": "Operations",
+        "title": "Asst. MAnager"
+      },
+      "gender": "male",
+      "age": 35,
+      "specialDatesGroup": {
+        "specialDates": "2024-01-07",
+        "label": "Anniversary"
+      },
+      "customLinks": [],
+      "language": [
+        "hindi",
+        "english"
+      ],
+      "height": "180",
+      "address": {
+        "line1": "V-814",
+        "line2": "Malibu Town",
+        "city": "Gurgaon",
+        "state": "Haryana",
+        "pinCode": 122002
+      }
     },
     {
       "id": "67786877",
       "name": "Mayank",
       "mobile": "9411532114",
-      "company": "google",
       "email": "mayank@gmail.com",
       "title": "Engineer",
       "avatar": "https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-PNG-Picture.png",
       "groupId": "5",
-      "recycled": false
-    },
-    {
-      "name": "Vikrant",
-      "mobile": "9119721122",
-      "email": "vikrant@gmail.com",
-      "avatar": "https://img.freepik.com/free-psd/3d-illustration-person-with-glasses_23-2149436189.jpg",
-      "company": "ashtbit",
-      "groupId": "2",
-      "title": "Developer",
-      "id": "Pb6uR7T",
-      "recycled": false
+      "recycled": false,
+      "nickName": null,
+      "pronouns": null,
+      "companyDetails": {
+        "company": "google",
+        "department": null,
+        "title": null
+      },
+      "gender": null,
+      "age": null,
+      "specialDatesGroup": {
+        "specialDates": null,
+        "label": null
+      },
+      "customLinks": [],
+      "language": [],
+      "height": null,
+      "address": {
+        "line1": null,
+        "line2": null,
+        "city": null,
+        "state": null,
+        "pinCode": null
+      }
     },
     {
       "name": "Avatar",
@@ -48,12 +85,227 @@
       "name": "Bhanu",
       "mobile": "8765676765",
       "email": "bhanupanwar@gmail.com",
-      "avatar": "https://static.vecteezy.com/system/resources/thumbnails/001/993/889/small/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
+      "avatar": "https://t3.ftcdn.net/jpg/06/17/13/26/360_F_617132669_YptvM7fIuczaUbYYpMe3VTLimwZwzlWf.jpg",
       "company": "Samsung",
       "groupId": "4",
       "title": "Cloud Engineer",
       "recycled": false,
-      "id": "fPj9EE6"
+      "id": "fPj9EE6",
+      "nickName": null,
+      "dob": null,
+      "companyDetails": {
+        "company": null,
+        "department": null,
+        "title": null
+      },
+      "gender": null,
+      "age": null,
+      "specialDatesGroup": {
+        "specialDates": null,
+        "label": null
+      },
+      "customLinks": [],
+      "language": [],
+      "height": null,
+      "address": {
+        "line1": null,
+        "line2": null,
+        "city": null,
+        "state": null,
+        "pinCode": null
+      }
+    },
+    {
+      "nickName": null,
+      "name": null,
+      "mobile": null,
+      "email": null,
+      "avatar": null,
+      "dob": null,
+      "companyDetails": {
+        "company": null,
+        "department": null,
+        "title": null
+      },
+      "groupId": null,
+      "gender": null,
+      "age": null,
+      "specialDatesGroup": {
+        "specialDates": null,
+        "label": null
+      },
+      "customLinks": [],
+      "language": [],
+      "height": null,
+      "address": {
+        "line1": null,
+        "line2": null,
+        "city": null,
+        "state": null,
+        "pinCode": null
+      },
+      "recycled": true,
+      "id": "Q3bD0wx"
+    },
+    {
+      "nickName": null,
+      "name": null,
+      "mobile": null,
+      "email": null,
+      "avatar": null,
+      "dob": null,
+      "companyDetails": {
+        "company": null,
+        "department": null,
+        "title": null
+      },
+      "groupId": null,
+      "gender": null,
+      "age": null,
+      "specialDatesGroup": {
+        "specialDates": null,
+        "label": null
+      },
+      "customLinks": [],
+      "language": [],
+      "height": null,
+      "address": {
+        "line1": null,
+        "line2": null,
+        "city": null,
+        "state": null,
+        "pinCode": null
+      },
+      "recycled": true,
+      "id": "FYvr-lZ"
+    },
+    {
+      "nickName": null,
+      "name": null,
+      "mobile": null,
+      "email": null,
+      "avatar": "",
+      "dob": null,
+      "companyDetails": {
+        "company": null,
+        "department": null,
+        "title": null
+      },
+      "groupId": null,
+      "gender": null,
+      "age": null,
+      "specialDatesGroup": {
+        "specialDates": null,
+        "label": null
+      },
+      "customLinks": [],
+      "language": [],
+      "height": null,
+      "address": {
+        "line1": null,
+        "line2": null,
+        "city": null,
+        "state": null,
+        "pinCode": null
+      },
+      "recycled": true,
+      "id": "RNDkA8f"
+    },
+    {
+      "nickName": null,
+      "name": "",
+      "mobile": null,
+      "email": null,
+      "avatar": null,
+      "dob": null,
+      "companyDetails": {
+        "company": null,
+        "department": null,
+        "title": null
+      },
+      "groupId": null,
+      "gender": null,
+      "age": null,
+      "specialDatesGroup": {
+        "specialDates": null,
+        "label": null
+      },
+      "customLinks": [],
+      "language": [],
+      "height": null,
+      "address": {
+        "line1": null,
+        "line2": null,
+        "city": null,
+        "state": null,
+        "pinCode": null
+      },
+      "recycled": true,
+      "id": "Egte_eV"
+    },
+    {
+      "nickName": null,
+      "name": "Rashika",
+      "mobile": 7253010724,
+      "email": "rashika@gmail.com",
+      "avatar": null,
+      "dob": null,
+      "companyDetails": {
+        "company": null,
+        "department": null,
+        "title": null
+      },
+      "groupId": null,
+      "gender": null,
+      "age": null,
+      "specialDatesGroup": {
+        "specialDates": null,
+        "label": null
+      },
+      "customLinks": [],
+      "language": [],
+      "height": null,
+      "address": {
+        "line1": null,
+        "line2": null,
+        "city": null,
+        "state": null,
+        "pinCode": null
+      },
+      "recycled": false,
+      "id": "z27ue4c"
+    },
+    {
+      "nickName": null,
+      "name": "ME",
+      "mobile": 788298292,
+      "email": "y6748@gmail.com",
+      "avatar": null,
+      "dob": null,
+      "companyDetails": {
+        "company": null,
+        "department": null,
+        "title": null
+      },
+      "groupId": null,
+      "gender": null,
+      "age": null,
+      "specialDatesGroup": {
+        "specialDates": null,
+        "label": null
+      },
+      "customLinks": [],
+      "language": [],
+      "height": null,
+      "address": {
+        "line1": null,
+        "line2": null,
+        "city": null,
+        "state": null,
+        "pinCode": null
+      },
+      "recycled": false,
+      "id": "nvdLxUp"
     }
   ],
   "groups": [

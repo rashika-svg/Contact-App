@@ -1,39 +1,51 @@
-<div class="bg-gray-900/[0.2] w-1/2 m-auto text-center hover:cursor-pointer hover:shadow-md duration-300
-    rounded-full py-2 shadow font-semibold border-4 border-white" (click)="add()">ADD NEW
+<div class="bg-neutral-700 w-1/3 m-auto text-center hover:cursor-pointer duration-300
+    rounded-lg py-3 font-semibold active:scale-95 text-amber-400 border mt-4" (click)="add()">ADD NEW
 </div>
-<div class="m-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi illum voluptatem, itaque distinctio
-    hic optio architecto mollitia, nam aliquid id debitis nemo. Aliquam sint eaque voluptatibus vel quas obcaecati
-    molestias.</div>
+<div class="m-4 text-white text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, animi
+    voluptate! Asperiores, possimus est.</div>
+
 <form [formGroup]="searchForm" class="text-sm">
-    <input type="text" formControlName="search" #filter (input)="filterResults(filter.value)"
-        class="px-4 py-2 w-full border-2 border-gray-200 rounded-full" placeholder="Search contact">
+    <input type="search" formControlName="search" #filter (input)="filterResults(filter.value)"
+        class="px-4 py-2 w-full outline outline-offset-2 outline-1 focus:outline-2 focus:outline-amber-400 rounded-full"
+        placeholder="Search contact">
 </form>
 
-<mat-spinner diameter="30" *ngIf="loading"></mat-spinner>
+<div class="flex justify-center mt-4">
+    <mat-spinner diameter="30" *ngIf="loading" color="warn"></mat-spinner>
+</div>
 
 <!-- Display error message -->
 <div *ngIf="loading && errorMessage">
     <span class="text-red-600">{{errorMessage}}</span>
 </div>
+
 <!-- Card design -->
-<div class="overflow-auto h-[70vh] mt-4">
-    <div *ngIf="!loading && contacts.length > 0" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+<div class="text-right sticky top-0 text-white font-medium mr-8">Total Contacts : {{contacts.length}}</div>
+<div class="overflow-auto h-[65vh] mt-2 px-4">
+    <div *ngIf="!loading && contacts.length > 0" class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-2">
         <div *ngFor="let contact of filteredItems">
-            <div class="shadow border-2 border-white">
-                <div class="flex justify-end bg-indigo-900/[0.2] gap-2 p-1">
-                    <a routerLink="/contacts/view/{{contact.id}}"><i
-                            class="material-icons hover:text-rose-600 duration-300 align-middle hover:scale-110 scale-75">remove_red_eye</i></a>
-                    <button (click)="edit(contact)"><i
-                            class="material-icons hover:text-green-600 duration-300 align-middle hover:scale-110 scale-75">edit</i></button>
-                    <button (click)="moveToRecycle(contact.id)"><i
-                            class="material-icons hover:text-orange-600 duration-300 align-middle hover:scale-110 scale-75">delete</i></button>
+            <div class="shadow border border-white rounded-lg">
+                <div class="flex justify-end bg-neutral-600 rounded-t-lg text-white">
+                    <a mat-icon-button routerLink="/contacts/view/{{contact.id}}" matTooltip="View more"
+                        class="hover:text-rose-600 duration-300 hover:scale-110 scale-75">
+                        <i class="material-icons ">remove_red_eye</i>
+                    </a>
+                    <button mat-icon-button (click)="edit(contact)" matTooltip="Edit"
+                        class="hover:text-green-600 duration-300 hover:scale-110 scale-75">
+                        <i class="material-icons">edit</i>
+                    </button>
+                    <button mat-icon-button (click)="moveToRecycle(contact.id)"
+                        class="hover:text-orange-600 duration-300 hover:scale-110 scale-75">
+                        <i class="material-icons ">delete</i>
+                    </button>
                 </div>
                 <div class="grid md:grid-cols-3">
-                    <div class="md:col-span-1 w-1/2 md:w-full m-auto p-4"><img
-                            class="rounded-full hover:scale-105 duration-300" [src]="contact.avatar" alt=""></div>
-
                     <div
-                        class="md:col-span-2 m-4 bg-gray-50 p-4 flex flex-col rounded shadow text-xs text-center self-center ">
+                        class="flex md:col-span-1 w-1/2 justify-center md:w-full m-auto p-4 h-[8rem] bg-[url('/assets/yellow-brush-stroke-style-3.png')] bg-contain bg-no-repeat bg-center ">
+                        <img class="rounded-full hover:scale-105 duration-300" [src]="contact.avatar" alt="">
+                    </div>
+                    <div
+                        class="md:col-span-2 m-4 bg-gray-50 p-4 flex flex-col rounded shadow text-xs text-center self-center">
                         <div class="font-bold text-gray-400 pb-2 border-b flex flex-col gap-2 md:flex-row">Name: <span
                                 class="text-gray-600 text-ellipsis overflow-hidden">{{contact.name}}</span>
                         </div>

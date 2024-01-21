@@ -1,7 +1,5 @@
-<div class="text-center pt-6">
-    <p class="font-bold text-xl">View Contact</p>
-    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum facere ut numquam enim quidem esse dolor, cum
-        atque neque repellendus nostrum ea ratione excepturi cupiditate placeat vitae impedit doloribus commodi?</div>
+<div class="text-center pt-6 text-white">
+    <p class="font-bold text-xl">Contact Details</p>
 
     <mat-spinner diameter="30" *ngIf="loading"></mat-spinner>
 
@@ -10,38 +8,43 @@
         <span class="text-red-600">{{errorMessage}}</span>
     </div>
 
-    <div *ngIf="!loading" class="grid md:grid-cols-3">
-        <div class="md:col-span-1 p-10"><img class="rounded-full shadow-lg hover:scale-105 duration-300"
-                [src]="contactData?.avatar" alt=""></div>
-
-        <div class="md:col-span-2 bg-gray-50 grid grid-cols-2 gap-4 text-sm text-center self-center bg-transparent">
-            <div class="font-bold text-gray-400 py-2 rounded-md">
-                <div>Name</div>
-                <div class="text-gray-600">{{contactData?.name}}</div>
-            </div>
-            <div class="font-bold text-gray-400 py-2 rounded-md">
-                <div>Email</div>
-                <div class="text-gray-600">{{contactData?.email}}</div>
-            </div>
-            <div class="font-bold text-gray-400 py-2 rounded-md">
-                <div>Company</div>
-                <div class="text-gray-600">{{contactData?.company}}</div>
-            </div>
-            <div class="font-bold text-gray-400 py-2 rounded-md">
-                <div>Mobile</div>
-                <div class="text-gray-600">{{contactData?.mobile}}</div>
-            </div>
-            <div class="font-bold text-gray-400 py-2 rounded-md">
-                <div>Title</div>
-                <div class="text-gray-600">{{contactData?.title}}</div>
-            </div>
-            <div class="font-bold text-gray-400 py-2 rounded-md">
-                <div>Group</div>
-                <div class="text-gray-600">{{group?.name}}</div>
-            </div>
+    <div
+        class="flex h-[15rem] justify-center m-auto md:col-span-1 p-10 bg-[url('/assets/yellow-brush-stroke-style-3.png')] bg-contain bg-no-repeat bg-center ">
+        <img class="hover:scale-105 duration-300 rounded-full" [src]="contactData?.avatar" alt="">
+    </div>
+    <div *ngIf="!loading"
+        class="md:col-span-2 bg-gray-50 grid grid-cols-4 gap-4 text-sm text-center self-center bg-transparent rounded-md border-2 p-4">
+        <div class="font-bold text-gray-500 py-2 rounded-md">
+            <div>Name</div>
+            <div class="text-gray-300">{{contactData?.name}}</div>
         </div>
-        <div class="text-center pb-6">
-            <button routerLink="/" class="bg-red-200 px-4 py-2 font-bold rounded hover:shadow-md duration-300">Go back</button>
+        <div class="font-bold text-gray-500 py-2 rounded-md">
+            <div>Email</div>
+            <div class="text-gray-300">{{contactData?.email}}</div>
         </div>
+        <div class="font-bold text-gray-500 py-2 rounded-md">
+            <div>Company</div>
+            <div class="text-gray-300">{{contactData?.company}}</div>
+        </div>
+        <div class="font-bold text-gray-500 py-2 rounded-md">
+            <div>Mobile</div>
+            <div class="text-gray-300">{{contactData?.mobile}}</div>
+        </div>
+        <div class="font-bold text-gray-500 py-2 rounded-md">
+            <div>Title</div>
+            <div class="text-gray-300">{{contactData?.title}}</div>
+        </div>
+        <div class="font-bold text-gray-500 py-2 rounded-md">
+            <div>Group</div>
+            <div class="text-gray-300">{{group?.name}}</div>
+        </div>
+        <div class="font-bold text-gray-500 py-2 rounded-md">
+            <div>Age</div>
+            <div class="text-gray-300">{{contactData?.age}}</div>
+        </div>
+    </div>
+    <div class="text-center py-6">
+        <button routerLink="/" class="bg-orange-600 px-4 py-2 font-semibold rounded hover:shadow-md duration-300">Go
+            back</button>
     </div>
 </div>
