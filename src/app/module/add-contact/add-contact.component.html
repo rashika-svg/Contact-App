@@ -1,38 +1,113 @@
-<div class="text-center p-6 bg-gradient-to-b from-indigo-50 to-white">
-    <p class="font-bold text-xl">{{contactsData ? 'Edit' : 'Add'}} Contact</p>
-    <div class="flex flex-col gap-4 md:flex-row">
-        <form [formGroup]='contactForm' class="grid gap-4 md:w-1/2 text-xs">
-            <input type="text" formControlName="name" placeholder="Name *"
-                class="p-2 bg-transparent border-gray-300 border-[1.5px] rounded-md">
-            <div>
-                <input type="file" #input hidden (change)="onFileSelect($event)">
-                <input type="text" formControlName="avatar" (click)="input.click()" placeholder="Photo url *"
-                    class="p-2 bg-transparent border-gray-300 border-[1.5px] rounded-md w-full hover:cursor-pointer"
-                    matTooltip="Click to upload or paste url">
-            </div>
-            <input type="email" formControlName="email" placeholder="Email ID *"
-                class="p-2 bg-transparent border-gray-300 border-[1.5px] rounded-md">
-            <input type="text" formControlName="mobile" placeholder="Mobile *"
-                class="p-2 bg-transparent border-gray-300 border-[1.5px] rounded-md">
-            <input type="text" formControlName="company" placeholder="Company"
-                class="p-2 bg-transparent border-gray-300 border-[1.5px] rounded-md">
-            <input type="text" formControlName="title" placeholder="Title"
-                class="p-2 bg-transparent border-gray-300 border-[1.5px] rounded-md">
-            <select class="p-2 bg-transparent border-gray-300 border-[1.5px] rounded-md" formControlName="groupId">
-                <option [value]="group.id" *ngFor="let group of groups" class="text-sm">{{group.name}}</option>
-            </select>
-            <div class="flex gap-4 justify-center">
-                <button type="submit" (click)="submitForm()"
-                    class="bg-indigo-900 rounded-md px-10 py-2 font-bold text-white">{{contactsData ? 'Update' :
-                    'Create'}}
-                </button>
+<div class="text-center bg-neutral-800 text-white">
+    <div class="font-bold text-xl py-4 md:pb-4 border-b ">{{contactsData ? 'Edit' : 'Add'}}
+        Contact</div>
+    <mat-dialog-content>
+        <div class="grid md:grid-cols-5 gap-4 justify-center">
+            <div class="md:col-span-3 order-last md:order-first">
+                <form [formGroup]='contactForm' class="grid md:grid-cols-3 gap-4 text-xs text-white">
+                    <ng-container>
+                        <div class="col-span-full text-left">Personal</div>
+                        <input type="text" formControlName="name" placeholder="Name *"
+                            [ngClass]="{'border-orange-600': isInvalid('name') }">
 
-                <button mat-dialog-close class="bg-orange-600 rounded-md px-10 py-2 font-bold text-white">Close</button>
+                        <input type="number" formControlName="mobile" placeholder="Mobile *"
+                            [ngClass]="{ 'border-orange-600': isInvalid('mobile') }">
+
+                        <ng-container>
+                            <input type="email" formControlName="email" placeholder="Email *" class="text-green-500"
+                                [ngClass]="{'border-orange-600': isInvalid('email'), 'border-gray-600': validPattern('email')}">
+                            <!-- <p *ngIf="validPattern('email')" class="text-rose-500">name@mail.com</p> -->
+                        </ng-container>
+
+                        <input type="number" formControlName="age" placeholder="Age">
+                        <input type="month" formControlName="dob" placeholder="DOB">
+
+                        <ng-container>
+                            <input type="range" min="100" max="200" formControlName="height" step="1"
+                                (input)="changeRange($event,rangeInput1)" #range1>
+                            <input type="number" min="100" max="200" formControlName="height" placeholder="Height in cm"
+                                (input)="changeRange($event, range1)" #rangeInput1>
+                        </ng-container>
+
+                        <div>
+                            <input type="file" #input hidden (change)="onFileSelect($event)">
+                            <input type="text" formControlName="avatar" (click)="input.click()"
+                                placeholder="Avatar url *" class="w-full hover:cursor-pointer"
+                                matTooltip="Click to upload or paste url">
+                        </div>
+                        <mat-chip-listbox formControlName="gender">
+                            <mat-chip-option *ngFor="let gender of genders" [value]="gender.gen"><mat-icon
+                                    [ngClass]="gender.gen === 'male' ? 'text-red-600':'text-green-600'">{{gender.icon}}</mat-icon></mat-chip-option>
+                            <!-- <mat-chip-option> <mat-icon class="text-green-600">female</mat-icon></mat-chip-option> -->
+                        </mat-chip-listbox>
+
+                    </ng-container>
+
+                    <ng-container formGroupName="companyDetails">
+                        <div class="col-span-full text-left">Company</div>
+                        <input type="text" formControlName="company" placeholder="Company">
+                        <input type="text" formControlName="department" placeholder="Department">
+                        <input type="text" formControlName="title" placeholder="Title">
+                    </ng-container>
+
+                    <ng-container>
+                        <div class="col-span-full text-left">Other</div>
+
+                        <mat-chip-grid #chipGrid formControlName="language" class="col-span-full flex-none">
+                            <mat-chip-row *ngFor="let lang of languages;" (removed)="removeLang(lang)" [editable]="true"
+                                (edited)="editLang(lang, $event)">
+                                {{lang}}
+                                <button matChipRemove>
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip-row>
+                            <input placeholder="New language..." class="text-sm" [matChipInputFor]="chipGrid"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="addLang($event)" />
+                        </mat-chip-grid>
+
+                        <ng-container formGroupName="specialDatesGroup">
+                            <input type="date" formControlName="specialDates" placeholder="Special Date">
+                            <select formControlName="label" class="text-sm">
+                                <option value="" selected disabled>Select State</option>
+                                <option [value]="label" *ngFor="let label of specialDatesLabel" class="text-black">
+                                    {{label}}
+                                </option>
+                            </select>
+                        </ng-container>
+                        
+                        <select formControlName="groupId">
+                            <option [value]="group?.id" *ngFor="let group of groups" class="text-sm text-black">
+                                {{group?.name}}
+                            </option>
+                        </select>
+                    </ng-container>
+
+                    <ng-container formGroupName="address">
+                        <div class="col-span-full text-left">Address</div>
+                        <input type="text" formControlName="line1" placeholder="line1">
+                        <input type="text" formControlName="line2" placeholder="line2">
+                        <input type="text" formControlName="city" placeholder="city">
+                        <input type="text" formControlName="state" placeholder="state">
+                        <input type="number" formControlName="pinCode" placeholder="pinCode">
+                    </ng-container>
+                </form>
             </div>
-        </form>
-        <div class="md:w-1/2 p-10 md:p-16 m-4 bg-gradient-to-b from-indigo-100 to-white rounded-full">
-            <img class="rounded-full" [src]="imgBoolean ? contactsData?.avatar : selectedFile" alt="">
+            <div class="md:col-span-2">
+                <div
+                    class="mb-4 flex justify-center h-[10rem] md:h-[18rem] p-4 md:p-10 
+                    bg-[url('/assets/yellow-brush-stroke-style-3.png')] bg-contain bg-no-repeat bg-center sticky top-0">
+                    <img class="rounded-full" [src]="imgBoolean ? contactsData?.avatar : selectedFile" alt="">
+                </div>
+            </div>
         </div>
-    </div>
-
+    </mat-dialog-content>
+    <hr class="my-2">
+    <mat-dialog-actions class="flex gap-2">
+        <button type="submit" (click)="submitForm()" class="w-1/3 bg-amber-400 rounded-md py-3 text-sm">{{contactsData ?
+            'UPDATE' :
+            'CREATE'}}
+        </button>
+        <button mat-dialog-close class="w-1/3 bg-orange-600 rounded-md py-3 text-sm">CLOSE</button>
+    </mat-dialog-actions>
 </div>
