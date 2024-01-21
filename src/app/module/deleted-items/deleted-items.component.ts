@@ -40,7 +40,7 @@ export class DeletedItemsComponent implements OnInit {
   restore(id: string) {
     this._contactService.recycleContact(id, { recycled: false }).subscribe({
       next: (res: any) => {
-        this._snackBar.open('Restored,', 'Dismiss', { duration: 2000, verticalPosition: 'bottom', });
+        this._snackBar.open('Restored', 'Dismiss', { duration: 2000, verticalPosition: 'bottom', });
         this.getContacts();
       },
     })
